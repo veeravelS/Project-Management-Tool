@@ -9,8 +9,10 @@ const Login = () => {
     const onFinish = async(data)=>{
         try {
            const response= await axios.post("http://192.168.0.112:3000/api/user/login",data,{headers:{"Access-Control-Allow-Origin": "*","Content-Type":"application/json"}})
-           console.log(response.data.token)
+           console.log(response );
+           console.log(response.data.user.username)
            sessionStorage.setItem("token",response.data.token)
+           sessionStorage.setItem("username",JSON.stringify(response.data.user.username))
            message.success("login successful");
            navigate("/project");
         } catch (error) {

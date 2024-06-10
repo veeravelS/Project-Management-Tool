@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { DownOutlined, EditOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 
 const PageLayout = () => {
-  const {Title}  = Typography
+  const {Title,Text}  = Typography
     const {dispatch,navigate} = Common();
     const title = useSelector((state)=>state.admin.activeMenu);
     console.log(title)
@@ -25,6 +25,7 @@ const handleMenuChange = ({key,domEvent})=>{
     navigate(key)
     dispatch(activeMenuName(name));
 }
+const username= JSON.parse(sessionStorage.getItem("username"))
   const Logout = (()=>{
       sessionStorage.clear();
       navigate("/login")
@@ -49,7 +50,7 @@ const handleMenuChange = ({key,domEvent})=>{
             justifyContent: 'space-between',
           }}  
         >
-          <Title level={4}>{title}</Title>
+          <Title level={4} style={{marginLeft:"20px"}}>{title}</Title>
           <Space size="large">
           <Dropdown overlayStyle={{ minWidth: '100px'}}
       dropdownRender={() => (
@@ -68,7 +69,7 @@ const handleMenuChange = ({key,domEvent})=>{
       )}
     >
         <Space>
-        <UserOutlined /> User Name
+        <UserOutlined style={{fontSize:"18px"}} /> <Text style={{fontSize:"15px"}}>{username}</Text>
           <DownOutlined />
         </Space>
     </Dropdown>
