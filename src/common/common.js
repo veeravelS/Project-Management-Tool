@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 const Common = ()=>{
     const dispatch = useDispatch();
-    const navigate = useNavigate()
-
-    return{dispatch,navigate}
+    const navigate = useNavigate();
+    const roles = null;
+    
+    return{dispatch,navigate,roles}
 }
 
 export default Common
