@@ -1,0 +1,7 @@
+.kanban-container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    overflow-x:auto;
+    white-space: nowrap; 
+}

@@ -1,0 +1,16 @@
+.DragTask-container{
+    padding:8px;
+    border-radius: 10px;
+    color:#000;
+    margin-top:8px;
+    margin-bottom:8px;
+    margin-left: 10px;
+    margin-right:10px;
+    min-height:90px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 1px solid black;
+    box-shadow:1px 1px 2px black
+}

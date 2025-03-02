@@ -1,12 +1,13 @@
 import { Button, Form, Input, message } from "antd"
 import "./Login.css"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import Common from "../../common/common"
 
 
 const Login = () => {
-    const navigate=useNavigate()
+    const {navigate} = Common()
     const onFinish = async(data)=>{
+<<<<<<< HEAD
         try {
            const response= await axios.post("http://192.168.0.112:3000/api/user/login",data,{headers:{"Access-Control-Allow-Origin": "*","Content-Type":"application/json"}})
            console.log(response );
@@ -16,10 +17,22 @@ const Login = () => {
            message.success("login successful");
            navigate("/project");
         } catch (error) {
+=======
+        console.log(import.meta.env.VITE_APP_API_URL)
+           await axios.post(`${import.meta.env.VITE_APP_API_URL}user/login`,data,{headers:{"Access-Control-Allow-Origin": "*","Content-Type":"application/json"}})
+           .then((response)=>{
+            sessionStorage.setItem("token",response.data.token)
+            sessionStorage.setItem("username",JSON.stringify(response.data.user.username))
+            message.success("login successful");
+            navigate("/project");
+           })
+           .catch ((error)=> {
+>>>>>>> e04b00b9bdca7210c6487b283f487354fd5f185b
             console.log(error);
-            message.success("login failed");
-        }
-    }
+            message.error("login failed");
+        })
+        } 
+
     
   return (
     <div className="Login-Container">
